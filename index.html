@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bruise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+        body {
+            max-width: 100vw;
+            height: 200vh;
+            background-color: #fff;
+            font-family: 'Montserrat';
+            display: flex;
+            font-weight: 400;
+        }
+        p{
+            font-weight: 400;
+            color: white;
+            font-size: 100px;
+            position: fixed;
+            -webkit-text-stroke: 2px purple;
+            text-align: center;
+        }
+        p.lil{
+            font-size: 20px;
+            color: white;
+            font-weight: 400;
+            position: fixed;
+            -webkit-text-stroke: 2px purple;
+            text-align: center;
+        }
+        .content{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #bruise {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(0,0,255,0.7);
+            border-radius: 50%;
+            animation: change 4s infinite;
+            transition: all 0.6s;
+        }
+        #bruise::before {
+            font-size: 50px;
+            color: transparent;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes change {
+            0% {border-radius: 50%; width: 150px; height: 150px;}
+            50% {border-radius: 25%; width: 175px; height: 175px;}
+            100% {border-radius: 50%; width: 150px; height: 150px;}
+        }
+    </style>
+    <script>
+        window.onscroll = function() {
+            var bruise = document.getElementById("bruise");
+            var yPos = window.scrollY;
+
+            if(yPos % 4 == 2){
+                bruise.style.left = "calc(50% - " + yPos + "px";
+            }
+            if(yPos % 4 == 1){
+                bruise.style.bottom = "calc(30% - " + yPos + "px";
+            } 
+            if(yPos % 4 == 1){
+                bruise.style.bottom = "calc(50% - " + yPos + "px";
+            } 
+            if(yPos % 6 == 2){
+                bruise.style.right = "calc(10% - " + yPos + "px";
+            } 
+            else {
+                bruise.style.right = "calc(20% + " + yPos + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="content">
+        <p>
+            BRUISE <br><br>
+           <p class="lil">DONT WANT TO BE RIGHT</p> 
+        </p>
+        <div id="bruise"></div>
+    </div>
+</body>
+</html>
